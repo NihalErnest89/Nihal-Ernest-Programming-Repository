@@ -1,4 +1,4 @@
-Public Key Crytography
+# Public Key Crytography
 
 This program implements the RSA method of encryption using numerical functions. There will be 3 executables: keygen, encrypt and decrypt. The keygen program handles key generation by producing public and private pairs of RSA keys. The encrypt program uses the generated public key to encrypt data, and the decrypt program uses the paired private key to decrypt the encrypted files. The RSA functions are written in rsa.c and use the mathematical functions in numtheory.c. A randstad, which can take an input seed, is used for random number generation.
 
