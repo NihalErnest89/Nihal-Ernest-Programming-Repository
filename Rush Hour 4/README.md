@@ -1,8 +1,8 @@
 # Rush Hour 4
 
-Written by Nihal Ernest, Timothy Fu, Hanjune Lee and Zachary Sherman
-Period 2
-16 May 2019
+- Written by Nihal Ernest, Timothy Fu, Hanjune Lee and Zachary Sherman
+- Period 2
+- 16 May 2019
 
 ## Introduction
 
