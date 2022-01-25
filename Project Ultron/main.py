@@ -721,4 +721,4 @@ async def on_ready():
     # await bot.get_channel(863235613465509888).send("https://tenor.com/view/ultron-this-is-exactly-what-i-wanted-marvel-avengers-age-of-ultron-gif-13290205") #exactly wanted
 
 
-bot.run('ODYzMjM5MDkzNjgwMjA5OTIw.YOkADg.ADLYlXKIxscXHuWwOhigiM8_lqU')
+bot.run('YOUR API TOKEN')
