@@ -131,3 +131,12 @@ def math(arg):
                 out = math(left) - math(right)
             return(out)
 
+def getSarcasm(input):
+    output = ""
+    for i in range(0, len(input)):
+        rng = random.randint(0, 1)
+        if (rng == 1):
+            output += input[i].upper()
+        else:
+            output += input[i]
+    return output
