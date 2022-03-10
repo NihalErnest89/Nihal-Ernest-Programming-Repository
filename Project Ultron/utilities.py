@@ -7,7 +7,46 @@ import discord
 
 
 
-
+def getApexStats(name):
+    key = 'wxPOs7q4qLcEerzZciTa';
+    if (name == "replicator"):
+        url = "https://api.mozambiquehe.re/crafting?&auth=" + key
+    else:
+        url = "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=" + name + "&auth=" + key
+    response = requests.get(url)
+    j = response.json()
+    if "Error" in j:
+        embed = discord.Embed(title="Error", description=j["Error"],
+                              colour=discord.Colour.red())
+        return embed
+    else:
+        if (name == "replicator"):
+            daily = ""
+            weekly = ""
+            embed = discord.Embed(title="Replicator Rotation", description="",
+                                  colour=discord.Colour.orange())
+            for i in j[0]["bundleContent"]:
+                daily += i["itemType"]["name"].replace("_", " ").title() + "\n"
+            embed.add_field(name="Daily", value=daily, inline=False)
+            for i in j[1]["bundleContent"]:
+                weekly += i["itemType"]["name"].replace("_", " ").title() + "\n"
+            embed.add_field(name="Weekly", value=weekly, inline=False)
+        else :
+            embed = discord.Embed(title=str(j["global"]["name"]) + '\'s Apex Stats', description="",
+                                  colour=discord.Colour.red())
+            embed.add_field(name="Level", value=j["global"]["level"], inline=False)
+            online = "Offline"
+            if (j["realtime"]["isOnline"] != 0):
+                online = "Online"
+            embed.add_field(name="Selected Legend", value=j["realtime"]["selectedLegend"], inline=False)
+            kills = "Whoever made the API is bald and thinks u have no kills as this legend"
+            if (len(j["legends"]["selected"]["data"]) > 0):
+                kills = str(j["legends"]["selected"]["data"][0]["value"])
+            embed.add_field(name=j["realtime"]["selectedLegend"] + " Kills", value=kills, inline=False)
+            embed.add_field(name="Status", value=online, inline=False)
+            embed.add_field(name="Rank", value=j["global"]["rank"]["rankName"] + " " + str(j["global"]["rank"]["rankDiv"]) + ", " + str(j["global"]["rank"]["rankScore"]) + " RP", inline=False)
+        return embed
+    return
 
 def getsubs(name):
     yt_id = name
@@ -140,3 +179,5 @@ def getSarcasm(input):
         else:
             output += input[i]
     return output
+
+
