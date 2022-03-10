@@ -50,8 +50,7 @@ fight = []
 bot = commands.Bot(command_prefix='$')
 duel_bool = False
 time_passed = False
-death_messages = [' melted into the ground', ' clicked on a link for free bobux', ' got sent to gulag',
-                  ' disappointed Stalin', ' was stepped on by big chungus', ' fell off the void']
+death_messages = [' melted into the ground']
 day_count = 0
 
 @bot.command(help='Set a reminder for a certain day. Work in progress')
@@ -182,10 +181,10 @@ async def execute(ctx, type, member: discord.Member, reasons = "Triggering Ultro
         await ctx.author.send(
             f" you have been muted from: {guild.name}! reason: Thinking that I didn't have contingencies")
 
-@bot.command(help='you want forgiveness? get religion', aliases = ['bringfromgulag', 'bringbackfromgulag'])
-async def returnfromgulag(ctx, member:discord.Member):
+@bot.command(help='you want forgiveness? get religion')
+async def unmute(ctx, member:discord.Member):
     mutedRole = discord.utils.get(ctx.guild.roles, name="Muted")
-    embed = discord.Embed(title="Unmute", description=f" {member.mention} escaped from gulag", colour=discord.Colour.green())
+    embed = discord.Embed(title="Unmute", description=f" {member.mention} escaped from AFK", colour=discord.Colour.green())
 
     await ctx.send(embed=embed)
     await member.remove_roles(mutedRole)
@@ -196,14 +195,14 @@ async def returnfromgulag(ctx, member:discord.Member):
 
 
 @bot.command(aliases=['yeet'])
-async def sendtogulag(ctx, member: discord.Member):
+async def sendtoAFK(ctx, member: discord.Member):
     if str(member) == "IronManForever#3275" or str(member) == "Ultron#9855":
         await ctx.send('Hah you thought you could use his own command against him' + ctx.author.mention)
         await ctx.author.edit(nick='stoopid')
         await ctx.author.edit(voice_channel=bot.get_channel(694215227218067477))
     else:
         if member.voice:
-            await ctx.send("Successfully sent {} to gulag".format(member.mention))
+            await ctx.send("Successfully sent {} to AFK".format(member.mention))
             await member.edit(voice_channel=bot.get_channel(694215227218067477))
         else:
             await ctx.send('You need to be a voice channel to use that')
@@ -273,7 +272,7 @@ def check_queue(ctx, id):
         source = queues[id].pop(0)
         player = voice.play(source)
 
-@bot.command(help='Leaves voice chat', aliases=['disconnect', 'fuckoff', 'begone', 'gotogulag'])
+@bot.command(help='Leaves voice chat', aliases=['disconnect', 'begone'])
 async def leave(ctx):
     channel = ctx.voice_client.channel
     if (ctx.voice_client):
@@ -360,7 +359,7 @@ async def yeetgames(ctx, *, tributes=''):
 
 
 def battle():
-    kill_messages = [' was yeeted into the void by ', ' was wiped from this plane of existence by ', ' was sent to gulag by ',
+    kill_messages = [' was yeeted into the void by ', ' was wiped from this plane of existence by ', ' was sent to hell by ',
                      ' lost in a duel to ', ' was slapped in the face by yeetbeans by ', ' was turned into a meme by ']
     out = ''
     while len(fight) > 0:
