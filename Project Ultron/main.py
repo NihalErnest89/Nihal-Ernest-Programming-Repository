@@ -87,6 +87,9 @@ async def add(ctx, trigger, *, response):
     with open("commands.txt", "a") as commands_out:
         commands_out.write(str(trigger.lower() + "* " + response + "\n"))
 
+@bot.command(help='Returns apex stats')
+async def apex(ctx, *, name):
+    await ctx.send(embed=getApexStats(name))
 
 @bot.command(help='Returns list of server that I\'m in')
 @commands.has_permissions(administrator=True)
