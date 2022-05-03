@@ -8,7 +8,7 @@ import discord
 
 
 def getApexStats(name):
-    key = 'wxPOs7q4qLcEerzZciTa';
+    key = '';
     if (name == "replicator"):
         url = "https://api.mozambiquehe.re/crafting?&auth=" + key
     else:
@@ -52,7 +52,7 @@ def getsubs(name):
     yt_id = name
     proper = False
 
-    key = "AIzaSyB0KD4P9vSkAb_LLeTyQzaZTaX5TSs76WM"
+    key = ""
     search = urllib.request.urlopen(
         "https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&maxResults=1&q=" + name + "&key=" + key).read()
     id = json.loads(search)["items"][0]["snippet"]["channelId"]
@@ -66,7 +66,7 @@ def getsubs(name):
     return [subs, views, videos, proper, title, pfp]
 
 def getweather(city):
-    w_key = "04b20e255eedbda39754fcd4e244a91f"
+    w_key = ""
     if isinstance(city, int) or True in [char.isdigit() for char in city]:
         url = "http://api.openweathermap.org/data/2.5/weather?" + "zip=" + str(city) + "&appid=" + w_key
     else:
