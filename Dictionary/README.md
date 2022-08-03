@@ -1,10 +1,5 @@
 # Programming Assignment 7
 
-```
-Nihal Ernest, nernest
-CSE101
-README.md
-```
 
 This program utilizes the Dictionary ADT in order to store input strings as keys, with the line numbers of each input string as the corresponding value. The Dictionary ADT stores the keys and values as Nodes in a Binary Search Tree. Furthermore, The Dictionary also enforces that all keys are unique, while values may repeat. Additionally, the Dictionary has a current iterator which allows the client to iterate through the dictionary in alphabetical order. The Dictionary can be printed either through an in-order traversal or a pre-order traversal.
 
