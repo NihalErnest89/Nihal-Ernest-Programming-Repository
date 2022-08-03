@@ -1,7 +1,0 @@
-sunday
-monday
-tuesday
-wednesday
-thursday
-friday* <@&863276579739402280> at 5 PM (PST) today
-saturday
