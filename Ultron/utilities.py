@@ -10,7 +10,7 @@ import nextcord
 
 
 def getApexStats(name, legend="", rank=False, map=False):
-    key = 'wxPOs7q4qLcEerzZciTa'
+    key = ''
     if name == "replicator":
         url = f"https://api.mozambiquehe.re/crafting?&auth={key}"
     elif name == "map":
@@ -109,7 +109,7 @@ def getsubs(name):
     yt_id = name
     proper = False
 
-    key = "AIzaSyAr1iIORvPuuhVAR8aT-JPMYdw1d4YPn2M"
+    key = ""
     search = urllib.request.urlopen(
         "https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&maxResults=1&q=" + name + "&key=" + key).read()
     id = json.loads(search)["items"][0]["snippet"]["channelId"]
@@ -123,7 +123,7 @@ def getsubs(name):
     return [subs, views, videos, proper, title, pfp]
 
 def getweather(city):
-    w_key = "04b20e255eedbda39754fcd4e244a91f"
+    w_key = ""
 
     # If input is a zip code
     if isinstance(city, int) or True in [char.isdigit() for char in city]:

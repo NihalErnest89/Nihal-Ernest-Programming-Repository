@@ -604,7 +604,7 @@ async def apex(interaction: Interaction, mode=SlashOption(description="What type
 
 @bot.slash_command(guild_ids=my_guilds, name='hypixel', description="hypixel stats")
 async def hypixel(interaction: Interaction, gamemode=SlashOption(description='Select hypixel gamemode', choices=["Bedwars", "Skywars"], default='Bedwars'), player=SlashOption(description='Enter your minecraft username', default='Ironman02')):
-    h_key = '117108a5-1d87-403d-bb25-53e8d2c38f43'
+    h_key = ''
     url = "http://api.hypixel.net/player?name=" + player + "&key=" + h_key
     response = requests.get(url)
     j = response.json()
