@@ -5,7 +5,7 @@ Revision: 5/18/20
 ```
 
 ## Introduction: 
-This program is a game that takes the exhilaration of being a wartime pilot and allows everyday people to enjoy the basics aspects. It uses a 2D bird’s eye view to allow players to view the world around them and explore it as the map scrolls forward. It has missions that the player can partake in flying around trying to take out enemy camps while battling enemy aircrafts[a], with the final battle being enemy bases. Anyone can enjoy this thrilling video game if they are in need of entertainment.
+This program is a game that takes the exhilaration of being a wartime pilot and allows everyday people to enjoy the basics aspects. It uses a 2D bird’s eye view to allow players to view the world around them and explore it as the map scrolls forward. It has missions that the player can partake in flying around trying to take out enemy camps while battling enemy aircrafts, with the final battle being enemy bases. Anyone can enjoy this thrilling video game if they are in need of entertainment.
 
 
 ### What is it?
