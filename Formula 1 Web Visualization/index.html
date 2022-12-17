@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Best F1 Drivers</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <h1><bold>Best Formula 1 Drivers (2004-2022)</bold></h1>
+  <body>
+    <div class="svg1">
+        <script type="text/javascript" src="MultilineChart.js"></script>
+    </div>
+    <div class="svg2">
+      <div class="container">
+          <script type="text/javascript" src="scatterplot.js"></script>
+      </div>
+      <div class="buttons">
+        <button class="down5Year" onclick="down5Year()">-5 Year</button>
+        <button class="downYear" onclick="downYear()">-1 Year</button>
+        <button class="curYear" id="yearSelected">
+          <script>
+            document.write(yearSelected);
+          </script>
+        </button>
+        <button class="upYear" onclick="upYear()">+1 Year</button>
+        <button class="up5Year" onclick="up5Year()">+5 Year</button>
+<!--        <button class="dark_mode" onclick="temp2(); toggleDarkMode()">-->
+        <button class="dark_mode" onclick="toggleDarkMode()">
+          Toggle Dark Mode
+        </button>
+      </div>
+    </div>
+
+    <h1></h1>
+  </body>
+
+  <div id="endinfo">
+    <div class="names">
+      <div>Created By:</div>
+      <br />
+      Nihal Ernest
+      <br />
+      Ryan Trinh
+      <br />
+      Reza Pasha
+      <br />
+      Luqman Rashad
+      <br />
+      Khoi Duong
+      <br />
+      <br />
+      In Collaboration with Suresh Lodha
+    </div>
+    <div class="designed">
+      <div>Designed For:</div>
+      <div>CSE163: Data Visualization, Fall 2022</div>
+      <a href="https://formula-1-cse-163.github.io/Best-F1-Drivers"
+        >Hosted on GitHub</a
+      >
+    </div>
+    <div class="links">
+      <div class="submit">
+        <a href="https://github.com/Formula-1-CSE-163/Best-F1-Drivers"
+          >Files:</a
+        >
+        <div>index.html</div>
+        <div>app.js</div>
+        <div>style.css</div>
+        <div>data folder</div>
+      </div>
+      <div class="sources">
+        <div>Data Sources:</div>
+        <div>
+        <a
+          href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020"
+          >CSV Data (1950-2022)</a
+        >
+        </div>
+        <a
+          href="https://www.formula1.com/en/results.html/2022/drivers.html"
+          >F1 Driver Standings (1950-2022)</a
+        >
+      </div>
+      <div class="vizsources">
+        <div>Visualization Sources:</div>
+        <div>
+        <a
+          href="https://www.motorsportstats.com/series/formula-one/summary/2022"
+          >F1 Motorsports Statistics</a
+        >
+        </div>
+            <a href="https://jasonjpaul.squarespace.com/formula-1-data-vis"
+           >F1 Hierarchical Edge Bundling Example</a>
+        <div>
+            <a href="https://rpubs.com/alisial/formula1-analysis">F1 Analysis With Graphs Example</a>
+        </div>
+      </div>
+      <div class="codesources">
+        <div>Code Sources:</div>
+        <div>
+            <a href="https://bl.ocks.org/mbostock/3887118">Scatterplot</a>
+        </div>
+        <a href="https://bl.ocks.org/mbostock/3884955">Multiline Line Chart</a>
+
+      </div>
+    </div>
+  </div>
+</html>
