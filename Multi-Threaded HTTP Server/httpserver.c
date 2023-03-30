@@ -88,9 +88,7 @@ int main(int argc, char **argv) {
     }
 
     while (1) {
-        //		printf("donke\n");
         uintptr_t connfd = listener_accept(&sock);
-        //      printf("monke\n");
 
         if (!queue_push(q, (void *) connfd)) { // pushes the connection to the queue
             return EXIT_FAILURE;
@@ -114,7 +112,6 @@ int worker_threads() {
             return EXIT_FAILURE;
         }
 
-        //		fprintf(stderr, "after: %lu\n", rc);
         handle_connection(rc);
 
         //		fprintf(stderr, "handle connection works\n");
@@ -133,7 +130,6 @@ void handle_connection(int connfd) {
     if (res != NULL) {
         conn_send_response(conn, res);
     } else {
-        //        debug("%s", conn_str(conn));
         const Request_t *req = conn_get_request(conn);
         if (req == &REQUEST_GET) {
             handle_get(conn);
@@ -149,7 +145,6 @@ void handle_connection(int connfd) {
 
 void handle_get(conn_t *conn) {
 
-    //debug("GET request not implemented. But, we want to get %s", uri);
 
     // What are the steps in here?
 
@@ -178,11 +173,7 @@ void handle_get(conn_t *conn) {
     reqId = conn_get_header(conn, "Request-Id");
 
     const Response_t *res = NULL;
-    //  debug("handling put request for %s", uri);
 
-    // Check if file already exists before opening it.
-    //    bool existed = access(uri, F_OK) == 0;
-    //  debug("%s existed? %d", uri, existed);
 
     // Open the file..
 
@@ -232,7 +223,6 @@ void handle_get(conn_t *conn) {
 
     audit_log("GET", uri, 200, reqId);
 
-    //	flock(fd, LOCK_UN);
 
     // heard that flock(unlock) is not needed if u have close(fd) right after
 
@@ -250,18 +240,14 @@ void handle_put(conn_t *conn) {
 
     char *uri = conn_get_uri(conn);
     const Response_t *res = NULL;
-    //debug("handling put request for %s", uri);
 
     char *reqId = NULL;
     reqId = conn_get_header(conn, "Request-Id");
 
-    // Check if file already exists before opening it.
-    //bool existed = access(uri, F_OK) == 0;
-    //debug("%s existed? %d", uri, existed);
+
 
     pthread_mutex_lock(&mutex);
     bool existed = access(uri, F_OK) == 0;
-    //    int turn = 0;
 
     // Open the file..
     int fd = open(uri, O_CREAT | O_WRONLY, 0600);
@@ -271,11 +257,9 @@ void handle_put(conn_t *conn) {
     // Using this instead of O_TRUNC helped pass more cases in stress_mix
     ftruncate(fd, 1);
 
-    //    pthread_mutex_unlock(&mutex);
 
     int status = 0;
     if (fd < 0) {
-        //debug("%s: %d", uri, errno);
         if (errno == EACCES || errno == EISDIR || errno == ENOENT) {
             res = &RESPONSE_FORBIDDEN;
             status = 403;
@@ -291,9 +275,7 @@ void handle_put(conn_t *conn) {
 
     pthread_mutex_unlock(&mutex);
 
-    //    ftruncate(fd, 1); // this one works well
 
-    //  flock(fd, LOCK_EX);
 
     res = conn_recv_file(conn, fd);
 
@@ -308,7 +290,6 @@ void handle_put(conn_t *conn) {
         goto out;
     }
 
-    //	flock(fd, LOCK_UN);
 
 out:
     audit_log("PUT", uri, status, reqId);
