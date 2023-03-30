@@ -1,6 +1,7 @@
-# Assignment 4 directory
+# Multi Threaded HTTP Server
 
-This directory contains source code and other files for Assignment 4.
 
-Use this README document to store notes about design, testing, and
-questions you have while developing your assignment.
+### Overview
+- Build a multi-threaded HTTP server using a thread-safe queue. This would allow the server to serve multiple clients simultaneously.
+- Requires usage of pthread library for mutex locks in the HTTP Server. Also uses mutex locks and condition variables for the bounded buffer queue.
+- Gain experience managing concurrency through synchronization.
