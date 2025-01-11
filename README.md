@@ -12,3 +12,5 @@ This repository contains my programming projects
 - Rush Hour 4 is a 2D driving game designed and developed in a team using Java
 
 - Ultron is a Discord moderation and utility bot designed developed in Python and hosted on Google Cloud Platform
+
+- Self Correcting LLM utilizes LLM 3.2 as a core component of a cutting-edge chatbot that leverages web scraping capabilities and targeted searches to access real-time and updated information beyond its knowledge base.
